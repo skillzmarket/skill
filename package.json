@@ -1,15 +1,11 @@
 {
   "name": "@skillzmarket/openclaw-skill",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OpenClaw skill for calling monetized AI skills with automatic x402 payments",
   "type": "module",
-  "bin": {
-    "skillz-call": "./skillz-call.sh"
-  },
   "files": [
     "SKILL.md",
-    "skillz-call.sh",
-    "skillz-cli.ts",
+    "scripts/",
     "package.json",
     "README.md"
   ],
@@ -30,10 +26,10 @@
   "dependencies": {
     "@x402/fetch": "^2.2.0",
     "@x402/evm": "^2.2.0",
-    "viem": "^2.0.0"
+    "viem": "^2.0.0",
+    "tsx": "^4.21.0"
   },
   "devDependencies": {
-    "tsx": "^4.21.0",
     "@types/node": "^20.0.0"
   }
 }
