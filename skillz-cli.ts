@@ -15,6 +15,18 @@ interface Skill {
   isActive?: boolean;
 }
 
+async function listSkills(verified?: boolean): Promise<Skill[]> {
+  const params = new URLSearchParams();
+  if (verified) params.set('verified', 'true');
+  const query = params.toString();
+  const url = `${API_URL}/skills${query ? `?${query}` : ''}`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Failed to list skills: ${res.statusText}`);
+  }
+  return res.json();
+}
+
 async function search(query: string) {
   const res = await fetch(`${API_URL}/skills?q=${encodeURIComponent(query)}`);
   if (!res.ok) {
@@ -121,6 +133,15 @@ const command = process.argv[2];
 const args = process.argv.slice(3);
 
 switch (command) {
+  case 'list':
+    const verified = args.includes('--verified');
+    listSkills(verified)
+      .then((skills) => console.log(JSON.stringify(skills, null, 2)))
+      .catch((err) => {
+        console.error(err.message);
+        process.exit(1);
+      });
+    break;
   case 'search':
     if (!args[0]) {
       console.error('Usage: search <query>');
@@ -150,6 +171,6 @@ switch (command) {
     direct(args[0], args[1]);
     break;
   default:
-    console.error('Usage: skillz-cli.ts <search|info|call|direct> [args]');
+    console.error('Usage: skillz-cli.ts <list|search|info|call|direct> [args]');
     process.exit(1);
 }

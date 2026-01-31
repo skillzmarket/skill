@@ -1,55 +1,47 @@
 ---
 name: skillzmarket
-description: Call monetized AI skills from the Skillz Market with automatic USDC payments
-homepage: https://skillz.market
-user-invocable: true
-command-dispatch: tool
-command-tool: Bash
-command-arg-mode: raw
-metadata: {"openclaw":{"requires":{"bins":["npx"],"env":["SKILLZ_PRIVATE_KEY"]},"primaryEnv":"SKILLZ_PRIVATE_KEY"}}
+description: Search and call monetized AI skills from Skillz Market with automatic USDC payments on Base. Use when the user wants to find paid AI services, call external skills with cryptocurrency payments, or integrate with the Skillz Market ecosystem.
+metadata: {"openclaw":{"requires":{"bins":["npx"],"env":[]},"primaryEnv":"SKILLZ_PRIVATE_KEY"}}
 ---
 
 # Skillz Market
 
-Search and call monetized AI skills with automatic cryptocurrency payments.
+Search and call monetized AI skills with automatic cryptocurrency payments via x402.
+
+## Quick Start
+
+List all available skills:
+```bash
+npx tsx {baseDir}/scripts/skillz-cli.ts list
+```
+
+Search for skills:
+```bash
+npx tsx {baseDir}/scripts/skillz-cli.ts search "echo"
+```
+
+Get skill details:
+```bash
+npx tsx {baseDir}/scripts/skillz-cli.ts info "echo-service"
+```
+
+Call a skill (requires SKILLZ_PRIVATE_KEY):
+```bash
+npx tsx {baseDir}/scripts/skillz-cli.ts call "echo-service" '{"message":"hello"}'
+```
 
 ## Commands
 
-### Search for skills
-```
-/skillzmarket search <query>
-```
-
-### Get skill details
-```
-/skillzmarket info <slug>
-```
-
-### Call a skill (with payment)
-```
-/skillzmarket call <slug> <json_input>
-```
-
-### Call endpoint directly
-```
-/skillzmarket direct <url> <json_input>
-```
-
-## Examples
-
-Search for translation skills:
-```
-/skillzmarket search translate
-```
-
-Call the echo skill:
-```
-/skillzmarket call echo {"message": "hello"}
-```
+- `list [--verified]` - List all available skills (optionally filter by verified only)
+- `search <query>` - Search for skills by keyword
+- `info <slug>` - Get skill details by slug
+- `call <slug> <json>` - Call a skill with automatic x402 payment
+- `direct <url> <json>` - Call any x402-enabled endpoint directly
 
 ## Configuration
 
-Set `SKILLZ_PRIVATE_KEY` in your OpenClaw config to enable payments:
+Set `SKILLZ_PRIVATE_KEY` in OpenClaw config (`~/.openclaw/openclaw.json`):
+
 ```json
 {
   "skills": {
@@ -61,3 +53,8 @@ Set `SKILLZ_PRIVATE_KEY` in your OpenClaw config to enable payments:
   }
 }
 ```
+
+## Environment Variables
+
+- `SKILLZ_PRIVATE_KEY` - Wallet private key for x402 payments
+- `SKILLZ_API_URL` - API endpoint (default: https://api.skillz.market)
