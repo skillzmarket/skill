@@ -12,22 +12,22 @@ Search and call monetized AI skills with automatic cryptocurrency payments via x
 
 List all available skills:
 ```bash
-npx tsx {baseDir}/scripts/skillz-cli.ts list
+npx tsx {baseDir}/skillz-cli.ts list
 ```
 
 Search for skills:
 ```bash
-npx tsx {baseDir}/scripts/skillz-cli.ts search "echo"
+npx tsx {baseDir}/skillz-cli.ts search "echo"
 ```
 
 Get skill details:
 ```bash
-npx tsx {baseDir}/scripts/skillz-cli.ts info "echo-service"
+npx tsx {baseDir}/skillz-cli.ts info "echo-service"
 ```
 
 Call a skill (requires SKILLZ_PRIVATE_KEY):
 ```bash
-npx tsx {baseDir}/scripts/skillz-cli.ts call "echo-service" '{"message":"hello"}'
+npx tsx {baseDir}/skillz-cli.ts call "echo-service" '{"message":"hello"}'
 ```
 
 ## Commands
