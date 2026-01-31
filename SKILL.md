@@ -1,7 +1,7 @@
 ---
 name: skillzmarket
 description: Search and call monetized AI skills from Skillz Market with automatic USDC payments on Base. Use when the user wants to find paid AI services, call external skills with cryptocurrency payments, or integrate with the Skillz Market ecosystem.
-metadata: {"openclaw":{"requires":{"bins":["npx"],"env":[]},"primaryEnv":"SKILLZ_PRIVATE_KEY"}}
+metadata: {"openclaw":{"requires":{"bins":["npx"],"env":["SKILLZ_PRIVATE_KEY"]},"primaryEnv":"SKILLZ_PRIVATE_KEY"}}
 ---
 
 # Skillz Market

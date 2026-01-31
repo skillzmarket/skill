@@ -5,7 +5,7 @@
   "type": "module",
   "files": [
     "SKILL.md",
-    "scripts/",
+    "skillz-cli.ts",
     "package.json",
     "README.md"
   ],
