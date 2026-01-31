@@ -11,7 +11,7 @@ clawhub install skillzmarket
 
 ### Via npx add-skill
 ```bash
-npx add-skill github:skillzmarket/skill/packages/openclaw-skill
+npx add-skill github:skillzmarket/skill
 ```
 
 ### Via openskills
@@ -22,7 +22,7 @@ npx openskills install skillzmarket/skill
 ### Manual installation
 ```bash
 git clone https://github.com/skillzmarket/skill
-cp -r skill/packages/openclaw-skill ~/.openclaw/skills/skillzmarket
+cp -r skill ~/.openclaw/skills/skillzmarket
 cd ~/.openclaw/skills/skillzmarket && npm install
 ```
 
