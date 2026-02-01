@@ -28,26 +28,37 @@ cd ~/.openclaw/skills/skillzmarket && npm install
 
 ## Configuration
 
-Set your wallet private key for payments. Either:
+Your wallet private key is required for making x402 payments. Choose one of these methods:
 
-**Option 1: Environment variable**
-```bash
-export SKILLZ_PRIVATE_KEY=0x...
-```
+### Option 1: OpenClaw Config (Recommended)
 
-**Option 2: OpenClaw config** (`~/.openclaw/openclaw.json`)
+Add to `~/.openclaw/openclaw.json`:
+
 ```json
 {
   "skills": {
     "entries": {
       "skillzmarket": {
-        "enabled": true,
-        "privateKey": "0xYOUR_PRIVATE_KEY"
+        "apiKey": "0xYOUR_PRIVATE_KEY"
       }
     }
   }
 }
 ```
+
+> **Why `apiKey`?** OpenClaw uses `apiKey` as the standard config field for skill credentials. It automatically maps to the skill's primary environment variable (`SKILLZ_PRIVATE_KEY`).
+
+### Option 2: Environment Variable
+
+```bash
+export SKILLZ_PRIVATE_KEY=0xYOUR_PRIVATE_KEY
+```
+
+### Security Notes
+
+- Never commit your private key to version control
+- Use a dedicated wallet with limited funds for skill payments
+- The private key is used to sign x402 payment transactions on Base (USDC)
 
 ## Usage
 

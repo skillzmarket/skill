@@ -40,18 +40,25 @@ npx tsx {baseDir}/skillz-cli.ts call "echo-service" '{"message":"hello"}'
 
 ## Configuration
 
-Set `SKILLZ_PRIVATE_KEY` in OpenClaw config (`~/.openclaw/openclaw.json`):
+Your wallet private key is required for x402 payments. Set it in OpenClaw config (`~/.openclaw/openclaw.json`):
 
 ```json
 {
   "skills": {
     "entries": {
       "skillzmarket": {
-        "privateKey": "0x..."
+        "apiKey": "0xYOUR_PRIVATE_KEY"
       }
     }
   }
 }
+```
+
+> **Note**: OpenClaw uses `apiKey` as the standard config field for skill credentials. This maps to the `SKILLZ_PRIVATE_KEY` environment variable that the skill uses internally.
+
+Alternatively, set the environment variable directly:
+```bash
+export SKILLZ_PRIVATE_KEY=0x...
 ```
 
 ## Environment Variables
