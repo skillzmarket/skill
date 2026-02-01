@@ -10,7 +10,7 @@ interface Skill {
   slug: string;
   name: string;
   endpoint: string;
-  price: string;
+  price: number;
   description?: string;
   isActive?: boolean;
 }
