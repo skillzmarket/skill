@@ -47,7 +47,7 @@ Set `SKILLZ_PRIVATE_KEY` in OpenClaw config (`~/.openclaw/openclaw.json`):
   "skills": {
     "entries": {
       "skillzmarket": {
-        "apiKey": "0x..."
+        "privateKey": "0x..."
       }
     }
   }

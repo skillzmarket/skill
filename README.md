@@ -42,7 +42,7 @@ export SKILLZ_PRIVATE_KEY=0x...
     "entries": {
       "skillzmarket": {
         "enabled": true,
-        "apiKey": "0xYOUR_PRIVATE_KEY"
+        "privateKey": "0xYOUR_PRIVATE_KEY"
       }
     }
   }
