@@ -1,6 +1,6 @@
 {
   "name": "@skillzmarket/openclaw-skill",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "OpenClaw skill for calling monetized AI skills with automatic x402 payments",
   "type": "module",
   "files": [
@@ -24,6 +24,7 @@
   "author": "Skillz Market",
   "license": "MIT",
   "dependencies": {
+    "@skillzmarket/sdk": "^0.1.7",
     "@x402/fetch": "^2.2.0",
     "@x402/evm": "^2.2.0",
     "viem": "^2.0.0",
@@ -31,5 +32,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
